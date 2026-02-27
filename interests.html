@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <title>Beyond the Mask | Interests</title>
+</head>
+
+<body>
+    <div id="stage">
+        <img src="images/background.jpg" alt="Theatre Background" class="stage-bg">
+
+        <div class="profile-window">
+            <header class="window-header">
+                <div class="dots"><span></span><span></span><span></span></div>
+                <div class="url-bar">beyondthemask.com/interests.html</div>
+                <button id="mute-btn" class="audio-control">MUSIC: ON</button>
+            </header>
+            
+            <div class="profile-content">
+                <aside class="sidebar">
+                    <h1 class="name">JAN4 ★</h1>
+                    <div class="profile-pic">
+                        <div class="pic-placeholder">
+                            <img src="images/interests-icon.gif" alt="Interests Icon" style="height: 100%; transform: scaleX(-1);">
+                        </div>
+                    </div>
+                    <p class="handle">Janelyn Nollora</p>
+                    <p class="tagline-cheery">A GRAND SPECTACLE</p>
+                    
+                    <nav class="inner-links">
+                        <a href="index.html">★ home</a>
+                        <a href="about.html">★ about</a>
+                        <a href="interests.html">★ interests</a>
+                    </nav>
+                </aside>
+
+                <main class="main-info">
+                    
+                    <section class="card">
+                        <h3>01. TRADITIONAL ART</h3>
+                        <p>Sketching is where my heart resides! As a cartoonist, I love the raw texture of graphite and the challenge of bringing characters to life on paper with every stroke of my pen.</p>
+                        <br>
+                        <div style="display: flex; gap: 5px;">
+                            <img src="images/traditional art.jpg" alt="Art 1" style="width: 32%; border: 1px solid #ff0000; filter: grayscale(100%);">
+                            <img src="images/traditional art 2.jpg" alt="Art 2" style="width: 32%; border: 1px solid #ff0000; filter: grayscale(100%);">
+                            <img src="images/traditional art 3.jpg" alt="Art 3" style="width: 32%; border: 1px solid #ff0000; filter: grayscale(100%);">
+                        </div>
+                    </section>
+
+                    <br>
+
+                    <section class="card">
+                        <h3>02. DIGITAL ARTS</h3>
+                        <p>Stepping into the digital realm allows me to play with infinite palettes. I enjoy creating clean, stylized illustrations that blend my traditional roots with modern graphic techniques.</p>
+                        <br>
+                        <img src="images/digital_art.jpg" alt="Digital Art" style="width: 35%; border: 1px solid #ff0000; filter: grayscale(100%);">
+                        <img src="images/digital_art2.jpg" alt="Digital Art" style="width: 50%; border: 1px solid #ff0000; filter: grayscale(100%);">
+                    </section>
+
+                    <br>
+
+                    <section class="card">
+                        <h3>03. MUSIC</h3>
+                        <p>Music is the soundtrack to my creativity. From the haunting melodies of Radiohead to the theatrical brilliance of Webber, these sounds fuel my daily inspiration and coding sessions!</p>
+                        <br>
+                        <h5><b>My 2025 Top Artists</b></h5> 
+                        <div style="font-size: 0.8em; line-height: 1.4;">
+                            <p>01 MITSKI ⋆ 02 THE SMITHS ⋆ 03 ARCTIC MONKEYS</p>
+                            <p>04 CIGARETTES AFTER SEX ⋆ 05 BILLIE EILISH</p>
+                            <p>06 RADIOHEAD ⋆ 07 LAUFEY ⋆ 08 THE MARÍAS</p>
+                            <p>09 ANDREW LLOYD WEBBER ⋆ 10 NIRVANA</p>
+                        </div>
+                    </section>
+
+                    <br>
+
+                    <section class="card">
+                        <h3>04. FILMS</h3>
+                        <p>I am captivated by stories that are dark, poetic, and visually striking. I often look to cinema for inspiration in lighting, mood, and dramatic world-building.</p>
+                        <br>
+                        <h4 style="color: #ff0000; margin-bottom: 5px;">The Phantom of the Opera</h4>
+                        <img src="images/films.gif" alt="Films" style="width: 100%; border: 1px solid #ff0000; filter: grayscale(100%); margin-bottom: 10px;">
+                        <h4 style="color: #ff0000; margin-bottom: 5px;">The Little Prince</h4>
+                        <img src="images/films2.gif" alt="Films" style="width: 100%; border: 1px solid #ff0000; filter: grayscale(100%); margin-bottom: 10px;">
+                        <h4 style="color: #ff0000; margin-bottom: 5px;">Frankenstein</h4>
+                        <img src="images/films3.gif" alt="Films" style="width: 100%; border: 1px solid #ff0000; filter: grayscale(100%);">
+                    </section>
+
+                    <br>
+
+                    <section class="card">
+                        <h3>05. PHOTOGRAPHY</h3>
+                        <p>Through the lens, I capture the world in its most candid moments. I prefer high-contrast, moody shots that find beauty in shadows and simple, everyday compositions.</p>
+                        <br>
+                        <img src="images/photo.jpg" alt="Photo 1" style="width: 48%; border: 1px solid #ff0000; filter: grayscale(100%);">
+                        <img src="images/photo2.jpg" alt="Photo 2" style="width: 48%; border: 1px solid #ff0000; filter: grayscale(100%);">
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <p>&copy; 2026 | BEYOND THE MASK | JANELYN G. NOLLORA</p>
+        </footer>
+
+        <div class="balance"></div>
+        <div class="curtain" id="curtain-left"></div>
+        <div class="curtain" id="curtain-right"></div>
+        <div class="spotlight"></div>
+    </div>   
+    
+    <audio id="bg-music" loop>
+        <source src="audio/Masquerade - Andrew Lloyd Webber.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const stage = document.getElementById('stage');
+        const music = document.getElementById('bg-music');
+        const muteBtn = document.getElementById('mute-btn');
+
+        stage.addEventListener('mouseenter', () => {
+            if (music.paused) {
+                music.play().catch(e => console.log("Autoplay blocked."));
+            }
+        }, { once: true });
+
+        muteBtn.addEventListener('click', () => {
+            if (music.muted) {
+                music.muted = false;
+                muteBtn.innerText = "MUSIC: ON";
+            } else {
+                music.muted = true;
+                muteBtn.innerText = "MUSIC: OFF";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <title>Beyond the Mask | About Me</title>
+</head>
+
+<body>
+    <div id="stage">
+        <img src="images/background.jpg" alt="Theatre Background" class="stage-bg">
+
+        <div class="profile-window">
+            <header class="window-header">
+                <div class="dots"><span></span><span></span><span></span></div>
+                <div class="url-bar">beyondthemask.com/about.html</div>
+                <button id="mute-btn" class="audio-control">MUSIC: ON</button>
+            </header>
+            
+            <div class="profile-content">
+                <aside class="sidebar">
+                    <h1 class="name">ABOUT ME ★</h1>
+                    <div class="profile-pic">
+                        <div class="pic-placeholder">
+                            <img src="images/about-icon.gif" alt="The Mask Unfolds" width="150px    " style="justify-self: end;">
+                        </div>
+                    </div>
+                    <p class="handle">The Mask Unfolds</p>
+                    
+                    <nav class="inner-links">
+                        <a href="index.html">★ home</a>
+                        <a href="about.html">★ about</a>
+                        <a href="interests.html">★ interests</a>
+                    </nav>
+                </aside>
+
+                <main class="main-info">
+                    
+                    <section class="card">
+                        <h3>BIOGRAPHY</h3>
+                        <p style="text-indent: 2em;">
+                            My creative journey began with a passion for traditional arts and storytelling. 
+                            As a cartoonist for the <i>La Verdad Herald</i>, I learned to translate complex 
+                            emotions into visual narratives. This love for design eventually led me to 
+                            digital platforms like Carrd, which sparked a deep curiosity about how 
+                            websites are built "beyond the mask" of simple templates.
+                        </p>
+                    </section>
+
+                    <br>
+
+                    <section class="card">
+                        <h3>EDUCATION</h3>
+                        <p><strong>La Verdad Christian College</strong></p>
+                        <p>Associate in Computer Technology (ACT)</p>
+                        <p><i>Relevant Coursework:</i> Web Application Development, Programming Logic, System Design.</p>
+                    </section>
+
+                    <br>
+
+                    <section class="card">
+                        <h3>CAREER GOALS</h3>
+                        <p style="text-indent: 2em;">
+                            My ultimate goal is to become a Full-Stack Developer who specializes in 
+                            immersive UI/UX design. I aim to blend my traditional artistic background 
+                            with robust technical skills to create digital stages that are both 
+                            functional and theatrically captivating.
+                        </p>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <p>&copy; 2026 | BEYOND THE MASK | JANELYN G. NOLLORA</p>
+        </footer>
+
+        <div class="balance"></div>
+        <div class="curtain" id="curtain-left"></div>
+        <div class="curtain" id="curtain-right"></div>
+        <div class="spotlight"></div>
+    </div>   
+    
+    <audio id="bg-music" loop>
+        <source src="audio/The Point of No Return - Andrew Lloyd Webber.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const stage = document.getElementById('stage');
+        const music = document.getElementById('bg-music');
+        const muteBtn = document.getElementById('mute-btn');
+
+        stage.addEventListener('mouseenter', () => {
+            if (music.paused) {
+                music.play().catch(e => console.log("Autoplay blocked."));
+            }
+        }, { once: true });
+
+        muteBtn.addEventListener('click', () => {
+            if (music.muted) {
+                music.muted = false;
+                muteBtn.innerText = "MUSIC: ON";
+            } else {
+                music.muted = true;
+                muteBtn.innerText = "MUSIC: OFF";
+            }
+        });
+    </script>
+</body>
+</html>
