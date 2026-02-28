@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <title>Beyond the Mask | Homepage</title>
+</head>
+
+<body>
+    <!-- MAIN CONTAINER (Covers full screen) -->
+    <div id="stage">
+        <img src="images/background.jpg" alt="Theatre Background" class="stage-bg">
+
+        <!-- Central Container -->
+        <div class="profile-window">
+            <header class="window-header">
+                <div class="url-bar">
+                    beyondthemask.com/index.html
+                </div>
+                <!-- Sound Toggle -->
+                <button id="mute-btn" class="audio-control">
+                    MUSIC: ON
+                </button>
+            </header>
+            
+            <div class="profile-content">
+                <!-- Aside Tag - To the side -->
+                <aside class="sidebar">
+                    <h1 class="name">
+                        JAN4 ★
+                    </h1>
+
+                    <!-- Frame for Profile picture -->
+                    <div class="profile-pic" style="justify-self: center;">
+                        <div class="pic-placeholder">
+                            <img src="images/profile.jpg" alt="Janelyn Nollora" width="150px">
+                        </div>
+                    </div>
+                    <p class="handle" style="text-align: center;">
+                        <b><i>
+                            Janelyn Nollora
+                        </i></b>
+                    </p>
+                    
+                    <!-- Anchor tags (Navigation) -->
+                    <nav class="inner-links">
+                        <a href="index.html">
+                            ★ home
+                        </a>
+                        <a href="about.html">
+                            ★ about
+                        </a>
+                        <a href="interests.html">
+                            ★ interests
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Main tag (Most important information) -->
+                <main class="main-info">
+                    <!-- Introduction Section -->
+                    <section class="card">
+                        <h3>
+                            INTRODUCTION
+                        </h3>
+                        <p style="text-indent: 2em;">
+                            Hi! I’m Janelyn G. Nollora, a student at La Verdad Christian College. I am a cartoonist in the school’s publication, La Verdad Herald, and I am taking an Associate’s degree in Computer Technology. I am currently taking the Web Application Development subject, and this is our second Laboratory Activity under the guidance of Sir Jehu Casimiro.
+                        </p><br>
+                        <p style="text-indent: 2em;">
+                            Welcome to my Student Portfolio titled “Beyond the Mask.”
+                        </p><br>
+                        <p style="text-indent: 2em;">
+                            Beyond the Mask, a website that showcases my passion for art, music, theatre, film, and technology, let’s unfold the curtain and get to know me better!
+                        </p>
+                    </section>
+                    <!-- Skills Section -->
+                    <section class="card">
+                        <h3>SKILLS</h3>
+                        <p>
+                            <b><i>
+                                ⋆ musical appreciation
+                                <br>
+                                ⋆ programming (python & java) 
+                                <br>
+                                ⋆ front-end development 
+                                <br>
+                                ⋆ system design 
+                                <br>
+                                ⋆ traditional art
+                                <br>
+                                ⋆ digital art
+                                <br>
+                                ⋆ video editing
+                            </i></b>
+                        </p>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <p>
+                &copy; 2026 | BEYOND THE MASK | JANELYN G. NOLLORA
+            </p>
+        </footer>
+
+        <!-- Top Curtain --> <div class="balance"></div> 
+        <!-- Left Curtain --> <div class="curtain" id="curtain-left"></div>
+        <!-- Right Curtain --> <div class="curtain" id="curtain-right"></div>
+        <!-- Spotlight --> <div class="spotlight"></div>
+    </div>   
+    
+    <!-- Looped Audio -->
+    <audio id="bg-music" loop>
+        <source src="audio/Overture - Andrew Lloyd Webber.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const stage = document.getElementById('stage');
+        const music = document.getElementById('bg-music');
+        const muteBtn = document.getElementById('mute-btn');
+
+        // Music plays when mouse hovers in the stage container
+        stage.addEventListener('mouseenter', () => {
+            if (music.paused) {
+                music.play().catch(e => console.log("Autoplay blocked."));
+            }
+        }, { once: true });
+
+        // Audio Toggle
+        muteBtn.addEventListener('click', () => {
+            if (music.muted) {
+                music.muted = false;
+                muteBtn.innerText = "MUSIC: ON";
+            } else {
+                music.muted = true;
+                muteBtn.innerText = "MUSIC: OFF";
+            }
+        });
+    </script>
+</body>
+</html>
