@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <title>Beyond the Mask | About Me</title>
+
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <!-- MAIN CONTAINER (Covers full screen) -->
+    <div id="stage">
+        <!-- Background -->
+        <img src="images/background.jpg" alt="Theatre Background" class="stage-bg">
+
+        <!-- Content Window -->
+        <div class="profile-window">
+            <!-- Window Header -->
+            <header class="window-header">
+                <div class="url-bar">
+                    beyondthemask.com/about.html
+                </div>
+                <button id="mute-btn" class="audio-control">
+                    MUSIC: ON
+                </button>
+            </header>
+            
+            <!-- Window Content -->
+            <div class="profile-content">
+                <!-- Left-Hand Column -->
+                <aside class="sidebar">
+                    <!-- Page Title -->
+                    <h1 class="name">
+                        ABOUT ME ★
+                    </h1>
+                    <!-- Picture Frame -->
+                    <div class="profile-pic">
+                        <div class="pic-placeholder">
+                            <img src="images/about-icon.gif" alt="The Mask Unfolds" width="150px" style="justify-self: end;">
+                        </div>
+                    </div>
+                    <!-- Tagline -->
+                    <p class="handle">
+                        The Mask Unfolds
+                    </p>
+                    
+                    <!-- Navigation Menu -->
+                    <nav class="inner-links">
+                        <a href="index.html">
+                            ★ home
+                        </a>
+                        <a href="about.html" class="active">
+                            ★ about
+                        </a>
+                        <a href="interests.html">
+                            ★ interests
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Right-Hand Column (Scrollable) -->
+                <main class="main-info">
+                    <!-- Navigation Arrows -->
+                    <div class="card-nav">
+                        <button id="btn-prev" class="nav-arrow"><</button>
+                        <button id="btn-next" class="nav-arrow">></button>
+                    </div>
+
+                    <!-- Biography Section -->
+                    <section id="bio-section" class="card">
+                        <h3>BIOGRAPHY</h3>
+                        <div id="bio-text" class="story-card" style="text-indent: 2em;">
+                        </div>
+                        <p class="hint">Click the text to skip or see next part</p>
+                    </section>
+
+                    <!-- Education Section -->
+                    <section id="edu-section" class="card" style="display: none;">
+                        <h3>EDUCATION</h3>
+                        <div class="timeline">
+                            <div class="timeline-line"></div>
+
+                            <!-- Elementary -->
+                            <div class="timeline-item left">
+                                <div class="timeline-dot"></div>
+                                <button class="timeline-btn">Elementary (2011-2017)</button>
+                                <div class="timeline-content">
+                                    <p><strong>Manggahan Elementary</strong> (2011-2015)</p>
+                                    <p>Consistent Honor | SSG Rep</p>
+                                    <br><hr><br>
+                                    <p><strong>Cainta Elementary</strong> (2015-2017)</p>
+                                    <p>Graduated With Honor</p>
+                                </div>
+                            </div>
+                            
+                            <!-- High School -->
+                            <div class="timeline-item right">
+                                <div class="timeline-dot"></div>
+                                <button class="timeline-btn">High School (2017-2025)</button>
+                                <div class="timeline-content">
+                                    <p><strong>Manggahan HS</strong> (Junior High)</p>
+                                    <p>Graduated With High Honor</p>
+                                    <br><hr><br>
+                                    <p><strong>San Lorenzo Ruiz SHS</strong> (Senior High)</p>
+                                    <p>Grade 11 (2022-2023)</p>
+                                    <br><hr><br>
+                                    <p><strong>Sta. Lucia HS</strong> (Senior High)</p>
+                                    <p>Graduated With High Honor (STEM)</p>
+                                </div>
+                            </div>
+
+                            <!-- College -->
+                            <div class="timeline-item left">
+                                <div class="timeline-dot"></div>
+                                <button class="timeline-btn">College (2025-Present)</button>
+                                <div class="timeline-content">
+                                    <p><strong>La Verdad Christian College</strong></p>
+                                    <p>Associate in Computer Technology</p>
+                                    <p>President's Lister | LV Herald</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section> 
+
+                    <!-- Career Goals Section -->
+                    <section id="goals-section" class="card" style="display: none;">
+                        <h3>CAREER GOALS</h3>
+                        <p class="calm-blink" style="text-indent: 2em;">
+                            I aim to graduate with a Bachelor’s degree under the ICT umbrella, having two degrees after taking my associate’s degree. I want to become a Full-Stack Developer specializing in UI/UX design. As an artist, I strive to merge my artistic background with my technical skills to create software and websites that are both functional and aesthetically captivating.
+                        </p><br><br>
+                        <p class="calm-blink" style="text-indent: 2em;">
+                            While having that as my main hustle, I’d have my artistic background as my sideline. I’d like to create animations in my free time and pursue my childhood dream of becoming an animator.
+                        </p><br><br>
+                        <p class="calm-blink" style="text-indent: 2em;">
+                            God willing, I aspire to create a software application for artists that I can also use in animation.
+                        </p>
+                        </section>
+                </main>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <p>&copy; 2026 | BEYOND THE MASK | JANELYN G. NOLLORA</p>
+        </footer>
+
+        <!-- Curtain -->
+        <!-- Top Curtain --> <div class="balance"></div>
+        <!-- Left Curtain --> <div class="curtain" id="curtain-left"></div>
+        <!-- Right Curtain --> <div class="curtain" id="curtain-right"></div>
+        <!-- Spotlight--> <div class="spotlight"></div>
+    </div>   
+    
+    <!-- Music Player -->
+    <audio id="bg-music" loop>
+        <source src="audio/The Point of No Return - Andrew Lloyd Webber.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="about.js"></script>
+</body>
+
+</html>
+
+
+
+

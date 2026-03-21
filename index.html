@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <title>Beyond the Mask | Homepage</title>
+</head>
+
+<body>
+    <!-- MAIN CONTAINER (Covers full screen) -->
+    <div id="stage">
+        <img src="images/background.jpg" alt="Theatre Background" class="stage-bg">
+
+        <!-- Content Window -->
+        <div class="profile-window">
+            <header class="window-header">
+                <div class="url-bar">beyondthemask.com/index.html</div>
+                <button id="mute-btn" class="audio-control">MUSIC: ON</button>
+            </header>
+            
+            <!-- Profile Content -->
+            <div class="profile-content">
+                <aside class="sidebar">
+                    <!-- Profile Info -->
+                    <h1 class="name">JAN4 ★</h1>
+                    <div class="profile-pic" style="justify-self: center;">
+                        <div class="pic-placeholder">
+                            <img src="images/profile.jpg" alt="Janelyn Nollora" width="150px">
+                        </div>
+                    </div>
+                    <p class="handle" style="text-align: center;"><b><i>Janelyn Nollora</i></b></p>
+                    
+                    <!-- Navigation Menu -->
+                    <nav class="inner-links">
+                        <a href="index.html" class="active">★ home</a>
+                        <a href="about.html">★ about</a>
+                        <a href="interests.html">★ interests</a>
+                    </nav>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-info">
+                    <!-- Navigation Arrows -->
+                    <div class="card-nav">
+                        <button id="btn-prev" class="nav-arrow" title="Back to Intro"><</button>
+                        <button id="btn-next" class="nav-arrow" title="See Skills">></button>
+                    </div>
+
+                    <!-- Introduction Section -->
+                    <section id="intro-section" class="card">
+                        <h3>INTRODUCTION</h3>
+                        <p class="calm-blink" style="text-indent: 2em;">
+                            Hi! I’m Janelyn G. Nollora, a student at La Verdad Christian College. I am a cartoonist in the school’s publication, La Verdad Herald, and I am taking an Associate’s degree in Computer Technology. I am currently taking the Web Application Development subject, and this is our second Laboratory Activity under the guidance of Sir Jehu Casimiro.
+                        </p><br><br>
+                        <p class="calm-blink" style="text-indent: 2em;">
+                            Welcome to my Student Portfolio titled “Beyond the Mask.”
+                        </p><br><br>
+                        <p class="calm-blink" style="text-indent: 2em;">
+                            Beyond the Mask, a website that showcases my passion for art, music, theatre, film, and technology, let’s unfold the curtain and get to know me better!
+                        </p>
+                    </section>
+
+                    <!-- Skills Section -->
+                    <section id="skills-section" class="card" style="display: none;">
+                        <h3>SKILLS</h3>
+                        <div id="skills-list"></div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <p>&copy; 2026 | BEYOND THE MASK | JANELYN G. NOLLORA</p>
+        </footer>
+
+        <!-- Curtain -->
+        <div class="balance"></div> 
+        <div class="curtain" id="curtain-left"></div>
+        <div class="curtain" id="curtain-right"></div>
+        <div class="spotlight"></div>
+    </div>   
+    
+    <!-- Music Player -->
+    <audio id="bg-music" loop>
+        <source src="audio/Overture - Andrew Lloyd Webber.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
