@@ -1,0 +1,648 @@
+/* UNIVERSAL */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+/* Whole page is fixed in place */
+body, html {
+    height: 100%;
+    background: black;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+/* Content Window is centered */
+#stage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background image covers the entire screen without stretching */
+.stage-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Content Window design (Red Theme) */
+.profile-window {
+    position: relative;
+    z-index: 5;
+    width: 90%;
+    max-width: 800px;
+    height: 480px; 
+    background: rgba(10, 0, 0, 0.98);
+    border: 2px solid #ff0000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+}
+
+/* Window top bar */
+.window-header {
+    background: #ff0000;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+/* URL bar inside the header */
+.url-bar {
+    background: black;
+    color: #ff0000;
+    flex-grow: 1;
+    margin: 0 15px;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+/* Content window is in grid */
+.profile-content {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    padding: 20px;
+    gap: 20px;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Sidebar styling */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Page Title styling */
+.name {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ff0000;
+}
+
+/* Picture Frame */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #ff0000;
+    background: #222;
+    overflow: hidden;
+}
+
+/* Picture styling */
+.profile-pic img {
+    object-fit: cover;
+    height: 100%;
+    filter: grayscale(50%);
+}
+
+/* Navigation Links design */
+.inner-links a {
+    display: block;
+    color: #ff0000;
+    text-decoration: none;
+    padding: 8px;
+    border: 1px solid #ff0000;
+    margin-top: 10px;
+    text-align: center;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+/* Allows scrolling for the text area */
+.main-info {
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* PSEUDO Elements */
+.main-info::-webkit-scrollbar { 
+    width: 5px; 
+}
+
+.main-info::-webkit-scrollbar-thumb { 
+    background: #ff0000; 
+}
+
+/* Main Content Styling */
+.card {
+    border-left: 3px solid #ff0000;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    background: #ff0000;
+    color: black;
+    display: inline-block;
+    padding: 2px 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Page Foreground */
+.curtain {
+    position: absolute;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    z-index: 100;
+
+    /* Foreground Styling */
+    background: 
+        linear-gradient(to left, rgba(0,0,0,0), #600, rgba(30,0,0,0.5), #400), 
+        linear-gradient(to left, rgba(60,0,0,0.9), rgba(120,0,0,0.95), rgba(60,0,0,0.9));
+    background-size: 67px 67px, 53px 53px;
+    transition: width 2s ease-in-out, transform 2s ease-in-out;
+}
+
+#curtain-left { 
+    left: 0; 
+}
+
+#curtain-right {
+    right: 0; 
+    transform: scaleX(-1); 
+}
+
+.balance {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    z-index: 110;
+    background: 
+        linear-gradient(to left, rgba(0,0,0,0), #600, rgba(30,0,0,0.5), #400), 
+        linear-gradient(to left, rgba(40,0,0,0.9), rgba(80,0,0,0.95), rgba(40,0,0,0.9));
+    background-size: 79px 79px, 61px 61px;
+    transition: height 1s 0.5s;
+}
+
+.spotlight {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    background: 
+        radial-gradient(circle at 50% 50%, transparent, rgba(0,0,0,1) 150%),
+        radial-gradient(circle at 50% 50%, rgba(255,0,0,0.1), transparent 50%);
+}
+
+#stage:hover #curtain-left { 
+    width: 8%; 
+    transform: skewX(-3deg);
+}
+
+#stage:hover #curtain-right { 
+    width: 8%; 
+    transform: scaleX(-1) skewX(-3deg); 
+}
+
+#stage:hover .balance { 
+    height: 4%; 
+}
+
+/* Footer styling */
+
+.site-footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 6;
+    pointer-events: none;
+}
+
+.site-footer p {
+    color: white;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+/* Music Button (ON and OFF) */
+.audio-control {
+    background: black;
+    color: #ffffff;
+    border: 1px solid #400;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 10px;
+}
+
+.audio-control:hover {
+    color: #ff0000;
+}
+
+/* Navigation Arrows Row */
+.card-nav {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    padding-left: 425px;
+}
+
+.nav-arrow {
+    background: #000;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Clickable Skill Buttons */
+.skill-clickable {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px dashed #ff0000;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s;
+    min-height: 40px;
+    width: 100%;
+}
+
+.skill-clickable:hover {
+    background: rgba(255, 0, 0, 0.2);
+}
+
+/* Image inside the skill button */
+.skill-img {
+    max-width: 100%;
+    max-height: 150px;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid white;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animations */
+@keyframes theatreBlink {
+    0% {
+        color: #ffffff;
+    }
+    33% {
+        color: #ff0000;
+    }
+    66% {
+        color: #000000;
+        text-shadow: 0 0 2px #ff0000;
+    }
+    100% {
+        color: #ffffff;
+    }
+}
+
+.blinking-theatre {
+    animation: theatreBlink 1s infinite;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.marquee-text {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Container for Image + Overlay */
+.skill-img-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid white;
+    background: black;
+}
+
+/* Skill Image */
+.skill-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%) contrast(120%);
+    transition: 0.5s ease;
+}
+
+/* Blinking Gradient Overlay */
+.theatre-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    /* Red-Black-White Gradient */
+    background: linear-gradient(
+        45deg, 
+        rgba(255, 0, 0, 0.5) 0%, 
+        rgba(0, 0, 0, 0.7) 50%, 
+        rgba(255, 255, 255, 0.3) 100%
+    );
+    background-size: 200% 200%;
+    pointer-events: none;
+    animation: gradientBlink 1.5s infinite alternate;
+}
+
+/* Animation for the Gradient Pulse */
+@keyframes gradientBlink {
+    0% {
+        opacity: 0.4;
+        background-position: 0% 0%;
+    }
+    50% {
+        opacity: 0.8;
+        background-position: 100% 100%;
+    }
+    100% {
+        opacity: 0.4;
+        background-position: 0% 0%;
+    }
+}
+
+/* CALM GRADIENT (Breathing Effect) */
+.calm-blink {
+    background: linear-gradient(
+        to right, 
+        #ffffff 25%, 
+        #ff7a7a 50%, 
+        #ff7a7a 75%, 
+        #ffffff 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    animation: breathingGradient 10s linear infinite;
+    display: inline-block;
+}
+
+@keyframes breathingGradient {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+/* Sidebar Navigation Links */
+.inner-links a {
+    text-decoration: none;
+    display: block;
+    margin: 15px 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: relative;
+    transition: all 0.4s ease;
+    
+    background: linear-gradient(to left, #ffffff 25%, #ff0000 50%, #ff0000 75%, #ffffff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: breathingGradient 5s linear infinite;
+}
+
+.inner-links a.active {
+    border-left: 5px solid #ff0000;
+}
+
+.inner-links a:hover {
+    transform: scale(1.1) translateX(10px);
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.9));
+    -webkit-text-fill-color: transparent; /* Keep it transparent on hover */
+}
+
+/* Active Page Highlighting */
+.inner-links a[href="index.html"] {
+    padding-left: 0;
+}
+
+/* Active page highlight handling*/
+.inner-links a.active {
+    border-left: 5px solid #ff0000;
+    padding-left: 10px;
+    
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Biography Card */
+.story-card {
+    min-height: 200px;
+    padding: 15px;
+    border: 1px solid #400;
+    background: rgba(20, 0, 0, 0.5);
+    cursor: pointer;
+    line-height: 1.6;
+}
+
+.hint {
+    font-size: 10px;
+    color: #666;
+    margin-top: 5px;
+    text-align: right;
+}
+
+/* Education Timeline Styling */
+.timeline {
+    position: relative;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px 0;
+}
+
+.timeline-btn {
+    width: 100%;
+    background: black;
+    color: white;
+    border: 1px solid #ff0000;
+    padding: 10px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    transition: 0.3s;
+}
+
+.timeline-btn:hover {
+    background: #ff0000;
+    color: black;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);background: #ff0000;
+    color: black;
+}
+
+.timeline-content {
+    display: none;
+    background: rgba(40, 0, 0, 0.8);
+    border: 1px dashed #ff0000;
+    padding: 15px;
+    margin-top: 5px;
+    font-size: 13px;
+    text-align: left;
+}
+
+/* Typing Cursor */
+.is-typing::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink { 
+    50% { opacity: 0; } 
+}
+
+/* Middle Vertical line */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ff0000;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 45%;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-out;
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 55%;
+    text-align: left;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 15px;
+    width: 10px;
+    height: 10px;
+    background: #ff0000;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+.left .timeline-dot {
+    right: -13.5%;
+}
+
+.right .timeline-dot {
+    left: -11.5%;
+}
+
+/* Container for the Image with Overlay */
+.gallery-img-container {
+    position: relative;
+    justify-self: center;
+    width: 300px;
+    height: 200px;
+    margin-top: 15px;
+    border: 2px solid #ff0000;
+    overflow: hidden;
+    background: #000;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(110%);
+    display: block;
+    cursor: pointer;
+}
+
+.theatre-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    
+    background: linear-gradient(
+        45deg, 
+        rgba(255, 0, 0, 0.5) 0%, 
+        rgba(0, 0, 0, 0.7) 50%, 
+        rgba(255, 255, 255, 0.3) 100%
+    );
+    background-size: 200% 200%;
+    animation: imageGlow 3s infinite alternate;
+}
+
+/* Blinking Animation for the Image Overlay */
+@keyframes imageGlow {
+    0% {
+        opacity: 0.3;
+        background-position: 0% 0%;
+    }
+    100% {
+        opacity: 0.8;
+        background-position: 100% 100%;
+    }
+}
+
+/* Pointer cursor for the description when typing */
+.type-target {
+    cursor: pointer;
+    min-height: 60px;
+    transition: color 0.3s;
+}
+
+ /* Description glows red when hovered during typing */
+.type-target.is-typing:hover {
+    color: #ff0000 !important;
+}
+
+/* Hint text under the description */
+.skip-hint {
+    font-size: 10px;
+    color: #555;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
